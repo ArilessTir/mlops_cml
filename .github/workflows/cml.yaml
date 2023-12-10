@@ -19,5 +19,4 @@ jobs:
 
           # Create CML report
           cat metrics.txt >> report.md
-          cml-publish learning_curve.png --md >> report.md
-          cml-send-comment report.md
+          cml comment create report.md
