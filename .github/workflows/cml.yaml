@@ -13,10 +13,7 @@ jobs:
           pip install -r requirements.txt
           python train.py 
 
-          # Create CML report
           echo  "MODEL METRICS:"
           cat metrics.txt
 
-          # Create CML report
-          cat metrics.txt >> report.md
           cml comment create report.md
