@@ -15,5 +15,5 @@ jobs:
 
           echo  "MODEL METRICS:"
           cat metrics.txt
-
+          echo "# CML report" >> report.md
           cml comment create report.md
