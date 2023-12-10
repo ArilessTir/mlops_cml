@@ -16,3 +16,8 @@ jobs:
           # Create CML report
           echo  "MODEL METRICS:"
           cat metrics.txt
+
+          # Create CML report
+          cat metrics.txt >> report.md
+          echo '![](./learning_curve.png "Learning Curve")' >> report.md
+          cml comment create report.md
