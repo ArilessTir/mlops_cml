@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     container: docker://ghcr.io/iterative/cml:0-dvc2-base1
     steps:
+      - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v3
       - name: Train model
         env:
