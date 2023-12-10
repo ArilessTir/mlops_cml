@@ -2,3 +2,4 @@ numpy
 pandas
 notebook
 scikit-learn
+matplotlib
