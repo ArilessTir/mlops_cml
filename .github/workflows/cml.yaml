@@ -3,6 +3,10 @@ on: [push]
 jobs:
   train-and-report:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     steps:
       - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v3
