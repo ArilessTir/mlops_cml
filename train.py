@@ -18,4 +18,5 @@ model.fit(X_train,y_train)
 y_pred = model.predict(X_test)
 mse = mean_squared_error(y_true=y_test, y_pred= y_pred)
 
-print(mse)
+file = open("metrics.txt", "w")
+file.write(f'Mean Squared Error: {mse:.2f}')
