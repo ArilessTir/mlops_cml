@@ -3,7 +3,6 @@ on: [push]
 jobs:
   train-and-report:
     runs-on: ubuntu-latest
-    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
     steps:
       - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v3
@@ -14,7 +13,6 @@ jobs:
           pip install -r requirements.txt
           python train.py 
 
-          echo  "MODEL METRICS:"
-          cat metrics.txt
           echo "# CML report" >> report.md
+          echo '![](./learning_curve.png "Confusion Matrix")' >> report.md
           cml comment create report.md
