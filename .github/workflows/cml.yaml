@@ -19,4 +19,5 @@ jobs:
 
           cat metrics.txt
           echo "# CML report" >> report.md
+          echo '![](./learning_curve.png "Confusion Matrix")' >> report.md
           cml comment create report.md
