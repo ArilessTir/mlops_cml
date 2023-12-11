@@ -3,8 +3,12 @@ on: [push]
 jobs:
   train-and-report:
     runs-on: ubuntu-latest
-    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     steps:
+      - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v3
       - name: Train model
         env:
@@ -12,7 +16,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           python train.py 
-
-          # Create CML report
-          echo  "MODEL METRICS"
-          cat metrics.txt
+          
+          echo 'My first CML report' > report.md
+          echo '![](learning_curve.png)' >> report.md
+          cml comment create --publish report.md
